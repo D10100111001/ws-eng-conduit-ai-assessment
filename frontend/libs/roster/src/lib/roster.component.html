@@ -1,0 +1,29 @@
+<div class="home-page">
+  <div class="banner">
+    <div class="container">
+      <h1 class="logo-font">Conduit Roaster</h1>
+      <p>Top Conduit authors roster</p>
+    </div>
+  </div>
+
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-12">
+        <table>
+          <tr>
+            <th>User Name</th>
+            <th>Articles Authored</th>
+            <th>Total Likes</th>
+            <th>Date of First Article</th>
+          </tr>
+          <tr *ngFor="let author of (roster$ | async)">
+            <td><a [href]="author.profileLink">{{ author.username }}</a></td>
+            <td>{{ author.totalArticles }}</td>
+            <td>{{ author.totalLikes }}</td>
+            <td>{{ author.firstArticleDate | date: 'longDate' }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

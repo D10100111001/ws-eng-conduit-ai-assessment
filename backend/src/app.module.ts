@@ -1,12 +1,18 @@
-import { MiddlewareConsumer, Module, NestModule, OnModuleInit } from '@nestjs/common';
-import { MikroORM } from '@mikro-orm/core';
-import { MikroOrmMiddleware, MikroOrmModule } from '@mikro-orm/nestjs';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  OnModuleInit,
+} from "@nestjs/common";
+import { MikroORM } from "@mikro-orm/core";
+import { MikroOrmMiddleware, MikroOrmModule } from "@mikro-orm/nestjs";
 
-import { AppController } from './app.controller';
-import { ArticleModule } from './article/article.module';
-import { ProfileModule } from './profile/profile.module';
-import { TagModule } from './tag/tag.module';
-import { UserModule } from './user/user.module';
+import { AppController } from "./app.controller";
+import { ArticleModule } from "./article/article.module";
+import { ProfileModule } from "./profile/profile.module";
+import { TagModule } from "./tag/tag.module";
+import { UserModule } from "./user/user.module";
+import { RosterModule } from "./roster/roster.module";
 
 @Module({
   controllers: [
@@ -18,11 +24,11 @@ import { UserModule } from './user/user.module';
     UserModule,
     ProfileModule,
     TagModule,
+    RosterModule,
   ],
   providers: [],
 })
 export class AppModule implements NestModule, OnModuleInit {
-
   constructor(private readonly orm: MikroORM) {}
 
   async onModuleInit(): Promise<void> {
@@ -35,7 +41,6 @@ export class AppModule implements NestModule, OnModuleInit {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(MikroOrmMiddleware)
-      .forRoutes('*');
+      .forRoutes("*");
   }
-
 }
