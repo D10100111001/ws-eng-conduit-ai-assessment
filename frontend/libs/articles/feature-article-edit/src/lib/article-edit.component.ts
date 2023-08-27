@@ -29,6 +29,7 @@ const structure: Field[] = [
     type: 'INPUT',
     name: 'tagList',
     placeholder: 'Enter Tags',
+    transformer: (value: string) => value.split(',').map(tag => tag.trim()),
     validator: [],
   },
 ];

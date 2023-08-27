@@ -9,7 +9,7 @@ import { MikroOrmModule } from '@mikro-orm/nestjs'
   controllers: [
     TagController,
   ],
-  exports: [],
+  exports: [TagService],
   imports: [MikroOrmModule.forFeature({ entities: [Tag] }), UserModule],
   providers: [TagService],
 })

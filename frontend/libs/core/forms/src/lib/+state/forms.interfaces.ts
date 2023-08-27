@@ -6,6 +6,7 @@ export interface Field {
   label?: string;
   placeholder?: string;
   validator?: ValidatorFn[];
+  transformer?: (value: any) => any;
   attrs?: any;
 }
 
