@@ -27,15 +27,7 @@ describe('TagController', () => {
 
   describe('findAll', () => {
     it('should return an array of tags', async () => {
-      const tags: Tag[] = [];
-      const createTag = (id: number, name: string) => {
-        const tag = new Tag();
-        tag.id = id;
-        tag.tag = name;
-        return tag;
-      };
-      tags.push(createTag(1, 'angularjs'));
-      tags.push(createTag(2, 'reactjs'));
+      const tags = ['angularjs', 'reactjs'];
 
       jest.spyOn(tagService, 'findAll').mockResolvedValue({ tags });
 

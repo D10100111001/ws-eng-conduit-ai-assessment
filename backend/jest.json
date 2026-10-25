@@ -8,6 +8,7 @@
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
   },
+  "setupFiles": ["<rootDir>/test/jest-compat.js"],
   "testRegex": "/src/.*\\.(test|spec).(ts|tsx|js)$",
   "collectCoverageFrom" : ["src/**/*.{js,jsx,tsx,ts}", "!**/node_modules/**", "!**/vendor/**"],
   "coverageReporters": ["json", "lcov"]
